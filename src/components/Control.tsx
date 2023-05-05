@@ -1,10 +1,11 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
+import controlStyle from '../styles/controlStyle';
 
 function Control() {
     return (
         <View>
-            <View style={styles.buttonRow}>
+            {/* <View style={styles.buttonRow}>
             <View style={styles.pseudoButton}></View>
             <TouchableOpacity style={styles.button} onPress={forward}>
             <Text style={styles.font30}>Forward</Text>
@@ -21,13 +22,9 @@ function Control() {
             <TouchableOpacity style={styles.button} onPress={back}><Text style={styles.font30}>Back</Text></TouchableOpacity>
             <View style={styles.pseudoButton}></View>
             </View>
-            <TouchableOpacity style={styles.controller} onPress={autoFollowing}><Text style={styles.font30}>Auto-following</Text></TouchableOpacity>
+            <TouchableOpacity style={styles.controller} onPress={autoFollowing}><Text style={styles.font30}>Auto-following</Text></TouchableOpacity> */}
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    
-});
 
 export default Control;

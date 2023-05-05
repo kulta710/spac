@@ -1,12 +1,9 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import signUpStyle from '../styles/signUpStyle';
 
 function SignUp() {
     return <View></View>;
 }
-
-const styles = StyleSheet.create({
-    
-});
 
 export default SignUp;
