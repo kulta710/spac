@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View, Text } from 'react-native';
 import signUpStyle from '../styles/signUpStyle';
 
 function SignUp() {

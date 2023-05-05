@@ -2,8 +2,7 @@ import React, { useState, useEffect, useReducer } from 'react';
 import {
     View,
     TouchableOpacity,
-    Text,
-    StyleSheet
+    Text
 } from 'react-native';
 import connectStyle from '../styles/connectStyle';
 
