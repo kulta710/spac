@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 const mainStyle = StyleSheet.create({
-    "container": {
+    container: {
       width: "100%",
       height: "100%",
       display: "flex",
@@ -9,10 +9,6 @@ const mainStyle = StyleSheet.create({
     },
     mainBox: {
       flex: 1,
-      display: "flex",
-      flexDirection: "column",
-      flexWrap: "nowrap",
-      justifyContent: "center"
     },
 });
 

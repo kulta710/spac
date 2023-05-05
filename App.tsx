@@ -47,16 +47,14 @@ export default function App() {
       <SafeAreaView style={mainStyle.container}>
         <Header></Header>
         <Nav></Nav>
-        <View style={mainStyle.mainBox}>
-          <Stack.Navigator screenOptions={{headerShown: false}}>
-            <Stack.Screen name="Home" component={Home} />
-            <Stack.Screen name="SignIn" component={SignIn} />
-            <Stack.Screen name="SignUp" component={SignUp} />
-            <Stack.Screen name="Connect" component={Connect} />
-            <Stack.Screen name="Control" component={Control} />
-            <Stack.Screen name="Form" component={Form} />
-          </Stack.Navigator>
-        </View>
+        <Stack.Navigator screenOptions={{headerShown: false}}>
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="SignIn" component={SignIn} />
+          <Stack.Screen name="SignUp" component={SignUp} />
+          <Stack.Screen name="Connect" component={Connect} />
+          <Stack.Screen name="Control" component={Control} />
+          <Stack.Screen name="Form" component={Form} />
+        </Stack.Navigator>
         <Footer></Footer>
       </SafeAreaView>
       </NavigationContainer>

@@ -4,17 +4,19 @@ import signInStyle from '../styles/signInStyle';
 
 function SignIn() {
     return (
-        <View style={signInStyle.navBox}>
-            <View style={signInStyle.loginBox}>
-                <View>
-                    <TextInput></TextInput>
-                    <TextInput></TextInput>
+        <View style={signInStyle.mainBox}>
+            <View style={signInStyle.contentBox}>
+                <View style={signInStyle.loginBox}>
+                    <View>
+                        <TextInput placeholder="ID" style={signInStyle.textInput}></TextInput>
+                        <TextInput placeholder="Password" style={signInStyle.textInput}></TextInput>
+                    </View>
+                    <TouchableOpacity style={signInStyle.loginBoxBtn}><Text>Log In</Text></TouchableOpacity>
                 </View>
-                <TouchableOpacity><Text>Log In</Text></TouchableOpacity>
-            </View>
-            <View style={signInStyle.controlBox}>
-                <TouchableOpacity><Text>Find ID/PW</Text></TouchableOpacity>
-                <TouchableOpacity><Text>Sing Up</Text></TouchableOpacity>
+                <View style={signInStyle.controlBox}>
+                    <TouchableOpacity style={signInStyle.controlBoxBtn}><Text>Find ID/PW</Text></TouchableOpacity>
+                    <TouchableOpacity style={signInStyle.controlBoxBtn}><Text>Sing Up</Text></TouchableOpacity>
+                </View>
             </View>
         </View>
     );

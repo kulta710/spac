@@ -6,8 +6,8 @@ const footerStyle = StyleSheet.create({
         flexDirection: "column",
         flexWrap: "nowrap",
         height: 80,
-        padding: 5,
-        paddingLeft: 10,
+        paddingTop: 5,
+        paddingLeft: 11,
         backgroundColor: "#c4c4c4"
     },
     footerText: {
