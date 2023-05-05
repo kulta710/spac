@@ -10,7 +10,7 @@ function Form() {
     return (
         <View style={formStyle.mainBox}>
             <View style={formStyle.controlBox}>
-                <SelectDropDown data={panels} defaultValueByIndex={0} onSelect={(selectedItem, index) => {}} buttonTextAfterSelection={(selectedItem, index) => {return selectedItem}} rowTextForSelection={(item, index) => {return item}} buttonStyle={formStyle.selectDropDownBtn} buttonTextStyle={formStyle.selectDropDownText} renderDropdownIcon={isOpened => {return <FontAwesome name={isOpened ? 'chevron-up' : 'chevron-down'} color={'#444'} size={18}/>}} />
+                <SelectDropDown data={panels} defaultValueByIndex={0} onSelect={(selectedItem, index) => {}} buttonTextAfterSelection={(selectedItem, index) => {return selectedItem}} rowTextForSelection={(item, index) => {return item}} buttonStyle={formStyle.selectDropDownBtn} buttonTextStyle={formStyle.selectDropDownText} renderDropdownIcon={isOpened => {return <FontAwesome name={isOpened ? 'arrow-up' : 'arrow-down'} color={'#444'} size={18}/>}} />
                 <TouchableOpacity style={formStyle.submitBtn}>
                     <Text>Submit</Text>
                 </TouchableOpacity>
