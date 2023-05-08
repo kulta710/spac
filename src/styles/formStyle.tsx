@@ -60,7 +60,12 @@ const formStyle = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         height: "100%",
-        flex: 0.3
+        flex: 0.3,
+        backgroundColor: "#ffffff"
+    },
+    panelText: {
+        fontWeight: "bold",
+        textAlign: "center"
     }
 });
 

@@ -16,7 +16,7 @@ function Control() {
                 <TouchableOpacity style={controlStyle.peripheralFnBtn}><Text>Light</Text></TouchableOpacity>
             </View>
             <View style={controlStyle.controlBox}>
-                <Text>JoyStick</Text>
+                
             </View>
             <View style={controlStyle.mainFnBox}>
                 <TouchableOpacity style={controlStyle.mainFnBtn}><Text>Auto Following</Text></TouchableOpacity>
