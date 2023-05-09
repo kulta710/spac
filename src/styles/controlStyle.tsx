@@ -51,6 +51,24 @@ const controlStyle = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center"
     },
+    controllerBoundary: {
+        width: 200,
+        height: 200,
+        borderWidth: 1,
+        borderRadius: 100,
+        display: "flex",
+        flexDirection: "row",
+        flexWrap: "nowrap",
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    controller: {
+        width: 70,
+        height: 70,
+        backgroundColor: "black",
+        borderRadius: 35,
+        opacity: 0.6
+    },
     mainFnBox: {
         flex: 0.1,
         borderWidth: 1,

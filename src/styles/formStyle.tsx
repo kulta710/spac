@@ -27,6 +27,11 @@ const formStyle = StyleSheet.create({
     selectDropDownText: {
         fontSize: 13
     },
+    icon1: {
+        width: 10,
+        height: 10,
+        marginRight: 11
+    },
     submitBtn: {
         borderWidth: 1,
         paddingHorizontal: 5,

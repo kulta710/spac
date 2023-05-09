@@ -27,6 +27,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
 
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+
 import Header from './src/components/Header';
 import Nav from './src/components/Nav';
 import Home from './src/components/Home';
@@ -43,12 +45,14 @@ export default function App() {
   const Stack = createNativeStackNavigator();
 
   return (
+    
     <NavigationContainer>
+      <GestureHandlerRootView>
       <SafeAreaView style={mainStyle.container}>
         <Header></Header>
         <Nav></Nav>
-        <Stack.Navigator screenOptions={{headerShown: false}}>
-          <Stack.Screen name="Home" component={Home} />
+        <Stack.Navigator screenOptions={{headerShown: false}} useLegacyImplementation={true}>
+          {/* <Stack.Screen name="Home" component={Home} /> */}
           <Stack.Screen name="SignIn" component={SignIn} />
           <Stack.Screen name="SignUp" component={SignUp} />
           <Stack.Screen name="Connect" component={Connect} />
@@ -57,6 +61,8 @@ export default function App() {
         </Stack.Navigator>
         <Footer></Footer>
       </SafeAreaView>
-      </NavigationContainer>
+      </GestureHandlerRootView>
+    </NavigationContainer>
+    
   );
 }

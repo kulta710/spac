@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { TouchableOpacity, View, Text, Alert } from 'react-native';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import { TouchableOpacity, View, Text, Alert, Image } from 'react-native';
 import SelectDropDown from 'react-native-select-dropdown';
 import formStyle from '../styles/formStyle';
 
@@ -120,7 +119,8 @@ function Form() {
                     rowTextForSelection={(item, index) => {return item}}
                     buttonStyle={formStyle.selectDropDownBtn}
                     buttonTextStyle={formStyle.selectDropDownText}
-                    renderDropdownIcon={isOpened => {return <FontAwesome name={isOpened ? 'arrow-up' : 'arrow-down'} color={'#444'} size={18}/>}}
+                    renderDropdownIcon={isOpened => {return <Image source={require("spac/android/app/src/main/assets/arrow-down-sign-to-navigate.png")} style={formStyle.icon1}/>}}
+                    dropdownIconPosition={"right"}
                 />
                 <TouchableOpacity style={formStyle.submitBtn}>
                     <Text>Submit</Text>
