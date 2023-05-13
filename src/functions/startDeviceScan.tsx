@@ -12,35 +12,35 @@ import {
 import { Base64 } from '../lib/base64';
 import { Buffer } from 'buffer';
 
-const manager = new BleManager();
-
-const reducer = (
-  state: Device[],
-  action: { type: 'ADD_DEVICE', payload: Device } | { type: 'CLEAR' }
-) => {
-  switch (action.type) {
-    case 'ADD_DEVICE':
-      const { payload: device } = action;
-
-      // check if the detected device is not already added to the list
-      if (device && !state.find((dev) => dev.id === device.id)) {
-        return [...state, device];
-      }
-      return state;
-    case 'CLEAR':
-      return [];
-    default:
-      return state;
-  }
-}
-
-// reducer to store and display detected ble devices
-const [scannedDevices, dispatch] = useReducer(reducer, []);
-
-// state to give the user a feedback about the manager scanning devices
-const [isLoading, setIsLoading] = useState(false);
-
 const scanDevices = () => {
+  const manager = new BleManager();
+
+  const reducer = (
+    state: Device[],
+    action: { type: 'ADD_DEVICE', payload: Device } | { type: 'CLEAR' }
+  ) => {
+    switch (action.type) {
+      case 'ADD_DEVICE':
+        const { payload: device } = action;
+  
+        // check if the detected device is not already added to the list
+        if (device && !state.find((dev) => dev.id === device.id)) {
+          return [...state, device];
+        }
+        return state;
+      case 'CLEAR':
+        return [];
+      default:
+        return state;
+    }
+  }
+  
+  // reducer to store and display detected ble devices
+  const [scannedDevices, dispatch] = useReducer(reducer, []);
+  
+  // state to give the user a feedback about the manager scanning devices
+  const [isLoading, setIsLoading] = useState(false);
+
   // display the Activityindicator
   setIsLoading(true);
 
@@ -65,7 +65,7 @@ const scanDevices = () => {
   })
 
   for (let i = 0; i < scannedDevices.length; i++) {
-    if (scannedDevices[i].id === "00:18:31:EF:C9:CE") {
+    if (scannedDevices[i].id === "ED:87:78:A6:04:28") {
       scannedDevices[i].connect().then((device) => {
         return device.discoverAllServicesAndCharacteristics();
       }).then((device) => {
