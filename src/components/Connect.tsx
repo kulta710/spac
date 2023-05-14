@@ -72,7 +72,7 @@ function Connect() {
             setIsLoading(false);
           }, 5000);
         })
-      }
+    }
 
       const scanChar = () => {
         let connectedDevice;
@@ -88,8 +88,8 @@ function Connect() {
                         if (services[i].uuid == "0000181f-0000-1000-8000-00805f9b34fb") {
                             services[i].characteristics().then((characteristics) => {
                                 for (let j = 0; j < characteristics.length; j++) {
-                                    if (characteristics[j].uuid == "00002a1b-0000-1000-8000-00805f9b34fb") {                                        
-                                        characteristics[j].writeWithoutResponse(Base64.encode('1'));
+                                    if (characteristics[j].uuid == "00002a1a-0000-1000-8000-00805f9b34fb") {                                        
+                                        //characteristics[j].writeWithoutResponse(Base64.encode('1'));
                                     }
                                 }
                             }).catch((error) => {
@@ -154,6 +154,14 @@ function Connect() {
         }).catch((error) => {
             Alert.alert(error.message);
         });
+      }
+
+      const function1 = () => {
+        manager.writeCharacteristicWithoutResponseForDevice("ED:87:78:A6:04:28", "0000181f-0000-1000-8000-00805f9b34fb", "00002a1a-0000-1000-8000-00805f9b34fb", Base64.encode('1'));
+      }
+
+      const function2 = () => {
+        manager.writeCharacteristicWithoutResponseForDevice("ED:87:78:A6:04:28", "0000181f-0000-1000-8000-00805f9b34fb", "00002a1a-0000-1000-8000-00805f9b34fb", Base64.encode('2'));
       }
 
         // for (let i = 0; i < scannedDevices.length; i++) {
@@ -272,8 +280,8 @@ function Connect() {
                         <Text>{status}</Text>
                     </View>
                     <View style={connectStyle.connectBtnBox}>
-                        <TouchableOpacity style={connectStyle.connectBtn}><Text>Connect</Text></TouchableOpacity>
-                        <TouchableOpacity style={connectStyle.connectBtn}><Text>Disconnect</Text></TouchableOpacity>
+                        <TouchableOpacity style={connectStyle.connectBtn} onPress={function1}><Text>Connect</Text></TouchableOpacity>
+                        <TouchableOpacity style={connectStyle.connectBtn} onPress={function2}><Text>Disconnect</Text></TouchableOpacity>
                     </View>
                 </View>
             </View>
