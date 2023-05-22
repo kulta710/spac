@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { TouchableOpacity, View, Text, Alert, Image } from 'react-native';
+import { BleManager, Device, Service, Characteristic, Descriptor } from 'react-native-ble-plx';
 import SelectDropDown from 'react-native-select-dropdown';
 import formStyle from '../styles/formStyle';
+import { Base64 } from '../lib/base64';
+import { Buffer } from 'buffer';
 
 function Form() {
+    const manager = new BleManager();
+
     const panels = ["Active", "Passive", "Passive Wheel", "None"];
 
     const [panelType, setPanelType] = useState("None");
@@ -25,6 +30,12 @@ function Form() {
     const [panelType8, setPanelType8] = useState("None");
     const [color9, setColor9] = useState("#ffffff");
     const [panelType9, setPanelType9] = useState("None");
+    const [color10, setColor10] = useState("#ffffff");
+    const [panelType10, setPanelType10] = useState("None");
+    const [color11, setColor11] = useState("#ffffff");
+    const [panelType11, setPanelType11] = useState("None");
+    const [color12, setColor12] = useState("#ffffff");
+    const [panelType12, setPanelType12] = useState("None");
 
     function selectPanel1() {
         switch (panelType) {
@@ -107,6 +118,64 @@ function Form() {
         }
         setPanelType9(panelType);
     }
+
+    function selectPanel10() {
+        switch (panelType) {
+            case "Active": setColor10("#757575"); break;
+            case "Passive": setColor10("#d4d4d4"); break;
+            case "Passive Wheel": setColor10("#a6a6a6"); break;
+            case "None": setColor10("#ffffff"); break;
+        }
+        setPanelType10(panelType);
+    }
+
+    function selectPanel11() {
+        switch (panelType) {
+            case "Active": setColor11("#757575"); break;
+            case "Passive": setColor11("#d4d4d4"); break;
+            case "Passive Wheel": setColor11("#a6a6a6"); break;
+            case "None": setColor11("#ffffff"); break;
+        }
+        setPanelType11(panelType);
+    }
+
+    function selectPanel12() {
+        switch (panelType) {
+            case "Active": setColor12("#757575"); break;
+            case "Passive": setColor12("#d4d4d4"); break;
+            case "Passive Wheel": setColor12("#a6a6a6"); break;
+            case "None": setColor12("#ffffff"); break;
+        }
+        setPanelType12(panelType);
+    }
+
+    const submitFormInfo = () => {
+        let panelMatrix = [[panelType1, panelType2, panelType3], [panelType4, panelType5, panelType6], [panelType7, panelType8, panelType9], [panelType10, panelType11, panelType12]];
+
+        let min = [0, 0];
+        let max = [0, 0];
+
+        let flag = true;
+
+        for (let i = 0; i < 4; i++) {
+            for (let j = 0; j < 3; j++) {
+                if (panelMatrix[i][j] !== "None") {
+                    if (flag) {
+                        min = [i, j]; flag = false;
+                    }
+                    max = [i, j];
+                }
+            }
+        }
+
+        let formInfoString = "" + (max[0] - min[0]) + "/" + (max[1] - min[1]);
+
+        manager.writeCharacteristicWithoutResponseForDevice("ED:87:78:A6:04:28", "0000181f-0000-1000-8000-00805f9b34fb", "00002a1d-0000-1000-8000-00805f9b34fb", Base64.encode(formInfoString)).then(() => {
+            Alert.alert("[form-info]: " + formInfoString);
+        }).catch((error) => {
+            console.warn(error);
+        });
+    };
     
     return (
         <View style={formStyle.mainBox}>
@@ -122,9 +191,7 @@ function Form() {
                     renderDropdownIcon={isOpened => {return <Image source={require("spac/android/app/src/main/assets/arrow-down-sign-to-navigate.png")} style={formStyle.icon1}/>}}
                     dropdownIconPosition={"right"}
                 />
-                <TouchableOpacity style={formStyle.submitBtn}>
-                    <Text>Submit</Text>
-                </TouchableOpacity>
+                <TouchableOpacity style={formStyle.submitBtn}><Text>Submit</Text></TouchableOpacity>
             </View>
             <View style={formStyle.formBox}>
                 <View style={formStyle.panelRow}>
@@ -141,6 +208,11 @@ function Form() {
                     <TouchableOpacity style={[formStyle.panel, {backgroundColor: color7}]} onPress={selectPanel7}><Text style={formStyle.panelText}>{panelType7}</Text></TouchableOpacity>
                     <TouchableOpacity style={[formStyle.panel, {backgroundColor: color8}]} onPress={selectPanel8}><Text style={formStyle.panelText}>{panelType8}</Text></TouchableOpacity>
                     <TouchableOpacity style={[formStyle.panel, {backgroundColor: color9}]} onPress={selectPanel9}><Text style={formStyle.panelText}>{panelType9}</Text></TouchableOpacity>
+                </View>
+                <View style={formStyle.panelRow}>
+                    <TouchableOpacity style={[formStyle.panel, {backgroundColor: color10}]} onPress={selectPanel10}><Text style={formStyle.panelText}>{panelType10}</Text></TouchableOpacity>
+                    <TouchableOpacity style={[formStyle.panel, {backgroundColor: color11}]} onPress={selectPanel11}><Text style={formStyle.panelText}>{panelType11}</Text></TouchableOpacity>
+                    <TouchableOpacity style={[formStyle.panel, {backgroundColor: color12}]} onPress={selectPanel12}><Text style={formStyle.panelText}>{panelType12}</Text></TouchableOpacity>
                 </View>
             </View>
         </View>
