@@ -42,7 +42,7 @@ function Control() {
             setDistance(response.substring(0, 3));
             setAngle(response.substring(4, 8));
         }).catch((error) => {
-            console.warn(error);
+            //console.warn(error);
         });
 
         manager.isDeviceConnected("ED:87:78:A6:04:28").then((flag) => {

@@ -11,29 +11,29 @@ function Form() {
 
     const panels = ["Active", "Passive", "Passive Wheel", "None"];
 
-    const [panelType, setPanelType] = useState("None");
-    const [color1, setColor1] = useState("#ffffff");
-    const [panelType1, setPanelType1] = useState("None");
-    const [color2, setColor2] = useState("#ffffff");
-    const [panelType2, setPanelType2] = useState("None");
+    const [panelType, setPanelType] = useState("Active");
+    const [color1, setColor1] = useState("#757575");
+    const [panelType1, setPanelType1] = useState("Active");
+    const [color2, setColor2] = useState("#757575");
+    const [panelType2, setPanelType2] = useState("Active");
     const [color3, setColor3] = useState("#ffffff");
     const [panelType3, setPanelType3] = useState("None");
-    const [color4, setColor4] = useState("#ffffff");
-    const [panelType4, setPanelType4] = useState("None");
-    const [color5, setColor5] = useState("#ffffff");
-    const [panelType5, setPanelType5] = useState("None");
+    const [color4, setColor4] = useState("#d4d4d4");
+    const [panelType4, setPanelType4] = useState("Passive");
+    const [color5, setColor5] = useState("#d4d4d4");
+    const [panelType5, setPanelType5] = useState("Passive");
     const [color6, setColor6] = useState("#ffffff");
     const [panelType6, setPanelType6] = useState("None");
-    const [color7, setColor7] = useState("#ffffff");
-    const [panelType7, setPanelType7] = useState("None");
-    const [color8, setColor8] = useState("#ffffff");
-    const [panelType8, setPanelType8] = useState("None");
+    const [color7, setColor7] = useState("#d4d4d4");
+    const [panelType7, setPanelType7] = useState("Passive");
+    const [color8, setColor8] = useState("#d4d4d4");
+    const [panelType8, setPanelType8] = useState("Passive");
     const [color9, setColor9] = useState("#ffffff");
     const [panelType9, setPanelType9] = useState("None");
-    const [color10, setColor10] = useState("#ffffff");
-    const [panelType10, setPanelType10] = useState("None");
-    const [color11, setColor11] = useState("#ffffff");
-    const [panelType11, setPanelType11] = useState("None");
+    const [color10, setColor10] = useState("#a6a6a6");
+    const [panelType10, setPanelType10] = useState("Passive Wheel");
+    const [color11, setColor11] = useState("#a6a6a6");
+    const [panelType11, setPanelType11] = useState("Passive Wheel");
     const [color12, setColor12] = useState("#ffffff");
     const [panelType12, setPanelType12] = useState("None");
 
@@ -191,7 +191,7 @@ function Form() {
                     renderDropdownIcon={isOpened => {return <Image source={require("spac/android/app/src/main/assets/arrow-down-sign-to-navigate.png")} style={formStyle.icon1}/>}}
                     dropdownIconPosition={"right"}
                 />
-                <TouchableOpacity style={formStyle.submitBtn}><Text>Submit</Text></TouchableOpacity>
+                <TouchableOpacity style={formStyle.submitBtn}><Text style={formStyle.submitBtnText}>Submit</Text></TouchableOpacity>
             </View>
             <View style={formStyle.formBox}>
                 <View style={formStyle.panelRow}>

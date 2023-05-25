@@ -7,8 +7,8 @@ const navStyle = StyleSheet.create({
         flexWrap: "nowrap",
         justifyContent: "space-evenly",
         alignItems: "center",
-        height: 50,
-        backgroundColor: "#e8e8e8"
+        height: 60,
+        backgroundColor: "#2b2b2b"
     },
     "navBtn": {
         display: "flex",
@@ -16,13 +16,17 @@ const navStyle = StyleSheet.create({
         flexWrap: "nowrap",
         justifyContent: "center",
         alignItems: "center",
-        borderWidth: 1,
-        width: "24%",
-        height: 42,
-        borderRadius: 7,
+        borderRightWidth: 1,
+        width: "25%",
+        height: "95%",
         borderColor: "#8a8a8a"
-    }
-    ,"navBtnText": {
+    },
+    "lastNavBtn": {
+        borderRightWidth: 0
+
+    },
+    "navBtnText": {
+        color: "white",
         fontWeight: "bold"
     }
 });

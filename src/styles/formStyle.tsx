@@ -38,6 +38,9 @@ const formStyle = StyleSheet.create({
         paddingVertical: 1,
         marginLeft: 5
     },
+    submitBtnText: {
+        fontWeight: "bold"
+    },
     formBox: {
         borderWidth: 1,
         display: "flex",
@@ -46,7 +49,7 @@ const formStyle = StyleSheet.create({
         justifyContent: "space-evenly",
         alignItems: "center",
         width: 300,
-        height: 300
+        height: 380
     },
     panelRow: {
         display: "flex",
@@ -55,7 +58,7 @@ const formStyle = StyleSheet.create({
         justifyContent: "space-evenly",
         alignItems: "center",
         width: "100%",
-        flex: 0.3
+        flex: 0.23
     },
     panel: {
         borderWidth: 1,
@@ -66,7 +69,10 @@ const formStyle = StyleSheet.create({
         alignItems: "center",
         height: "100%",
         flex: 0.3,
-        backgroundColor: "#ffffff"
+        backgroundColor: "#ffffff",
+        shadowColor: "black",
+        shadowOpacity: 1,
+        elevation: 100
     },
     panelText: {
         fontWeight: "bold",

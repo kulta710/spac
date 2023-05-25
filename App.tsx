@@ -26,43 +26,52 @@ import {
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
-
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-
 import Header from './src/components/Header';
 import Nav from './src/components/Nav';
 import Home from './src/components/Home';
-import SignIn from './src/components/SignIn';
-import SignUp from './src/components/SignUp';
 import Connect from './src/components/Connect';
 import Control from './src/components/Control';
 import Form from './src/components/Form';
-import Footer from './src/components/Footer';
-
 import mainStyle from './src/styles/mainStyle';
+import SplashScreen from 'react-native-splash-screen';
+import { LogBox } from 'react-native';
 
 export default function App() {
-  const Stack = createNativeStackNavigator();
+    LogBox.ignoreLogs(['new NativeEventEmitter']);
 
-  return (
-    
-    <NavigationContainer>
-      <GestureHandlerRootView>
-      <SafeAreaView style={mainStyle.container}>
-        <Header></Header>
-        <Nav></Nav>
-        <Stack.Navigator screenOptions={{headerShown: false}} useLegacyImplementation={true}>
-          {/* <Stack.Screen name="Home" component={Home} /> */}
-          <Stack.Screen name="SignIn" component={SignIn} />
-          <Stack.Screen name="SignUp" component={SignUp} />
-          <Stack.Screen name="Connect" component={Connect} />
-          <Stack.Screen name="Control" component={Control} />
-          <Stack.Screen name="Form" component={Form} />
-        </Stack.Navigator>
-        <Footer></Footer>
-      </SafeAreaView>
-      </GestureHandlerRootView>
-    </NavigationContainer>
-    
-  );
+    useEffect(() => {
+        setTimeout(() => {
+            SplashScreen.hide();
+        }, 1000);
+    }, []);
+
+    const Stack = createNativeStackNavigator();
+
+    return (
+        <NavigationContainer>
+            <GestureHandlerRootView>
+                <SafeAreaView style={mainStyle.container}>
+                    <Header></Header>
+                    <View style={mainStyle.gradBand}>
+                        <View style={mainStyle.gradLevel3}></View>
+                        <View style={mainStyle.gradLevel2}></View>
+                        <View style={mainStyle.gradLevel1}></View>
+                    </View>
+                    <Stack.Navigator screenOptions={{headerShown: false, animationTypeForReplace: "push", animation: "slide_from_right"}} initialRouteName="Home">
+                        <Stack.Screen name="Home" component={Home} />
+                        <Stack.Screen name="Connect" component={Connect} />
+                        <Stack.Screen name="Control" component={Control} />
+                        <Stack.Screen name="Form" component={Form} />
+                    </Stack.Navigator>
+                    <View style={mainStyle.gradBand}>
+                        <View style={mainStyle.gradLevel1}></View>
+                        <View style={mainStyle.gradLevel2}></View>
+                        <View style={mainStyle.gradLevel3}></View>
+                    </View>
+                    <Nav></Nav>
+                </SafeAreaView>
+            </GestureHandlerRootView>
+        </NavigationContainer>
+    );
 }

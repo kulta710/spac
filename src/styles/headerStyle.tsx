@@ -2,22 +2,21 @@ import { StyleSheet } from 'react-native';
 
 const headerStyle = StyleSheet.create({
     "headerBox": {
-        backgroundColor: "lightgray",
+        backgroundColor: "black",
         display: "flex",
         flexDirection: "row",
         flexWrap: "nowrap",
         justifyContent: "center",
         alignItems: "center",
-        height: 45
+        height: 60
     },
     "title": {
-        color: "black",
-        fontWeight: "bold",
-        fontSize: 25
+        width: 85
     },
     "subTitle": {
-        color: "black",
-        fontSize: 15,
+        color: "white",
+        fontSize: 12,
+        fontWeight: "bold",
         marginLeft: 10,
         marginTop: 10
     }
